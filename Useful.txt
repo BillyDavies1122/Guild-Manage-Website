@@ -1,0 +1,6 @@
+CREATE VENV & ACTIVATE VENV
+python -m venv venv
+venv\Scripts\activate
+
+DJANGO DOCS
+https://docs.djangoproject.com/
