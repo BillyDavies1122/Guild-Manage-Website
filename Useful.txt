@@ -1,6 +1,11 @@
 CREATE VENV & ACTIVATE VENV
 python -m venv venv
+import django
 venv\Scripts\activate
 
 DJANGO DOCS
 https://docs.djangoproject.com/
+
+SUPER USER
+admin
+password
