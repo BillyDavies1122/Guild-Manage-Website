@@ -1,0 +1,14 @@
+{% if characterList %}
+
+    {% for character in characterList %}
+        <h1>{{character.characterName}} </h1>
+
+        <p>{{character.characterClass}} </p>
+        <p>{{character.characterGuild}} </p>
+        <p>{{character.characterFaction}} </p>
+    {% endfor %}
+        
+    {% else %}
+    <p>Character not found!</p>
+
+    {% endif %}

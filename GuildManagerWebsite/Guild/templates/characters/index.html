@@ -1,0 +1,11 @@
+{% if characterList %}
+    <ul>
+        {% for character in characterList %}
+            <li>
+                <a href="/character/{{character.id}}/character">{{character.characterName}} </a>
+            </li>
+        {% endfor %}
+    </ul>
+{%else%}
+    <p> No Characters available</p>
+{% endif%}
