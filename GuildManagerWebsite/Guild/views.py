@@ -32,5 +32,20 @@ def characterPage(request,characterId):
         }
     return HttpResponse(template.render(context,request))
 
+def guildIndex(request):
+    guildList = guild.objects.all()
+    template = loader.get_template('guilds/index.html')
+    context = {
+        'guildList': guildList,
+        }
+
+    return HttpResponse(template.render(context,request))
+
 def guildPage(request,guildId):
-    return HttpResponse("This is the Guild page for %s " % guildId)
+    guildList = guild.objects.filter(id=guildId)
+    template = loader.get_template('guilds/guildPage.html')
+    context = {
+        'guildList': guildList,
+        }
+
+    return HttpResponse(template.render(context,request))

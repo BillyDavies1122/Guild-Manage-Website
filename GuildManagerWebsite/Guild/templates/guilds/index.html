@@ -1,0 +1,11 @@
+{% if guildList %}
+<ul>
+    {% for guild in guildList %}
+    <li>
+        <a href="/guild/{{guild.id}}/guild">{{guild.guildName}} </a>
+    </li>
+    {% endfor %}
+</ul>
+{%else%}
+<p> No Guilds available</p>
+{% endif%}
