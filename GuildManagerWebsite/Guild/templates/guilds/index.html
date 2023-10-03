@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block title%} Guild Page {% endblock %}
+{% block content %}
 {% if guildList %}
 <ul>
     {% for guild in guildList %}
@@ -9,3 +13,4 @@
 {%else%}
 <p> No Guilds available</p>
 {% endif%}
+{% endblock %}

@@ -1,12 +1,18 @@
+{% extends "base.html" %}
+
+{% block title%} Guild Page {% endblock %}
+{% block content %}
+
 {% if guildList %}
 
     {% for guild in guildList %}
-        <h1>{{guild.guildName}} </h1>
+<h1>{{guild.guildName}} </h1>
 
-        <h2>{{guild.server}} </h2>
-        <h2>{{guild.faction}} </h2>
+<h2>{{guild.server}} </h2>
+<h2>{{guild.faction}} </h2>
     {% endfor %}
 
 {% else %}
-        <p>Guild not found!</p>
+<p>Guild not found!</p>
 {% endif %}
+{% endblock %}

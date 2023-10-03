@@ -1,3 +1,4 @@
+from decimal import Context
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
@@ -5,12 +6,12 @@ from .models import *
 
 # Create your views here.
 
-def index(request):
-    
-    return HttpResponse("Hello world. You are in the guild index")
+
 
 def search(request):
-    return HttpResponse("This is the search page")
+    template = loader.get_template('search/searchPage.html')
+    
+    return HttpResponse(template.render())
 
 
 
