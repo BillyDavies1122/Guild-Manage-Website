@@ -3,4 +3,12 @@
 {% block title%} Search Results {% endblock %}
 {% block content %}
 
+{% if userSearch %}
+
+    <h1>{{userSearch}}</h1>
+    
+{% else %}
+<p>Nothing Found!</p>
+{% endif %}
+
 {% endblock %}

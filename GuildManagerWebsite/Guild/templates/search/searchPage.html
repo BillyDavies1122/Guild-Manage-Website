@@ -3,4 +3,16 @@
 {% block title%} Search Page {% endblock %}
 {% block content %}
 
+<h1> Search here </h1>
+
+
+
+<div>
+    <form action="{% url 'searchResults' %}" method ="post">
+        
+        <input id="searchBar" name="search" type="text">
+        <input class="btn btn-primary" type="submit" value="submit">
+    </form>
+</div>
+
 {% endblock %}
