@@ -7,7 +7,7 @@
     <ul>
         {% for character in characterList %}
             <li>
-                <a href="/{{character.id}}/character">{{character.characterName}} </a>
+                <a href="/{{character.id}}/character">{{character.characterName}} - {{character.characterFaction}} - {{character.characterRealm}} </a>
             </li>
         {% endfor %}
     </ul>

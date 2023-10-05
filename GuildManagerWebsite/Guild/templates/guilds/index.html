@@ -6,7 +6,7 @@
 <ul>
     {% for guild in guildList %}
     <li>
-        <a href="/{{guild.id}}/guild">{{guild.guildName}} </a>
+        <a href="/{{guild.id}}/guild">{{guild.guildName}}-{{guild.faction}}-{{guild.server}} </a>
     </li>
     {% endfor %}
 </ul>

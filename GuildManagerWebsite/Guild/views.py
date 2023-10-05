@@ -31,8 +31,12 @@ def searchResults(request):
     allows them to go directly to those specific pages
     '''
     userSearch = request.POST.get('search','')
+    guildSearch = guild.objects.filter(guildName = userSearch)
+    characterSearch = character.objects.filter(characterName = userSearch)
     context ={
-        'userSearch': userSearch
+        'userSearch': userSearch,
+        'guildSearch': guildSearch,
+        'characterSearch':characterSearch
     }
 
     return HttpResponse(template.render(context,request))

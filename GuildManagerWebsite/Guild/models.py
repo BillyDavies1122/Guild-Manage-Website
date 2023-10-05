@@ -56,4 +56,4 @@ class character(models.Model):
             return self.characterGuild
 
     def __str__(self):
-        return f"Character is called {self.characterName} and is a member of {self.characterGuild}"
+        return f"{self.characterName} - {self.characterFaction} - {self.characterRealm} - {self.characterGuild}"

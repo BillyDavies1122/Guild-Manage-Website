@@ -3,11 +3,20 @@
 {% block title%} Search Results {% endblock %}
 {% block content %}
 
-{% if userSearch %}
+{% if guildSearch%}
 
-    <h1>{{userSearch}}</h1>
-    
+    {% for guild in guildSearch %}
+        <h2>{{guild.guildName}}</h2>
+    {% endfor %}
+
+{% elif characterSearch %}
+
+    {%for character in characterSearch %}
+        </h2>{{character}}<h2>
+    {% endfor %}
+
 {% else %}
+
 <p>Nothing Found!</p>
 {% endif %}
 
