@@ -77,3 +77,7 @@ def guildPage(request,guildId):
         }
 
     return HttpResponse(template.render(context,request))
+
+def instance_list(request):
+    instances = Instance.objects.all()
+    return render(request, 'instances/instance.html', {'instances': instances})

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title%} Instances {% endblock %}
+{% block content %}
+{% if instances %}
+<ul>
+    {% for instance in instances %}
+    <li>
+        <a href="/{{instance.id}}/instance">{{instance.name}}({{instance.instance_type}})</a>
+    </li>
+    {% endfor %}
+</ul>
+{%else%}
+<p>Instance Not Found!</p>
+{% endif%}
+{% endblock %}

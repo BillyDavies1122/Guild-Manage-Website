@@ -28,6 +28,33 @@ serverChoices = (
     ('Remulos','Remulos'),
     )
 
+instanceType = (
+    ('10', '10'),
+    ('25', '25'),
+    ('Dungeon','Dungeon'),
+    ('Heroic','Heroic'),
+    ('Mythic', 'Mythic'),
+    ('Mythic+', 'Mythic+'),
+    ('Mythic++', 'Mythic++'),
+    ('Mythic+++', 'Mythic+++'),
+    ('Mythic++++', 'Mythic++++')
+)
+
+bossesICC = (
+    (0,"Lord Marrowgar"),
+    (1,"Lady Deathwhisper"),
+    (2,"Gunship Battle"),
+    (3,"Deathbringer Saurfang"),
+    (4,"Festergut"),
+    (5,"Rotface"),
+    (6,"Professor Putricide"),
+    (7,"Blood Prince Council"),
+    (8,"Blood-Queen Lana'thel"),
+    (9,"Valithria Dreamwalker"),
+    (10,"Sindragosa"),
+    (11,"The Lich King")
+)
+
 # Create your models here.
 class guild(models.Model):
     guildName = models.CharField(max_length=50)
@@ -57,3 +84,38 @@ class character(models.Model):
 
     def __str__(self):
         return f"{self.characterName} - {self.characterFaction} - {self.characterRealm} - {self.characterGuild}"
+    
+class instance(models.Model):
+    name = models.CharField(max_length=50)
+    short_name = models.CharField(max_length=10)
+    instance_type = models.CharField(max_length=20, choices=instanceType)
+    description = models.TextField()
+
+    def __str__(self):
+        return f"{self.short_name}({self.instance_type})"
+
+class instanceBoss(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.TextField()
+    instance = models.ForeignKey('instance', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.name}({self.instance})"
+    
+    def GetInstance(self):
+        return self.instance
+
+
+class instanceLoot(models.Model):
+    item_name = models.CharField(max_length=50)
+    item_type = models.CharField(max_length=20)
+    item_level = models.IntegerField()
+    raid = models.ForeignKey('instance', on_delete=models.CASCADE)
+    boss = models.ForeignKey('instanceBoss', on_delete=models.CASCADE)
+    wowhead_link = models.URLField(null=False)
+
+    def __str__(self):
+        return f"{self.item_name} - {self.item_type} (item level: {self.item_level})"
+    
+    def getLink(self):
+        return self.wowhead_link
