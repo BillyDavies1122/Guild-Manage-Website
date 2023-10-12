@@ -7,15 +7,9 @@ from .models import *
 
 # Create your views here.
 
-
-
 def search(request):
     template = loader.get_template('search/searchPage.html')
     
-
-
-
-
 
     return HttpResponse(template.render())
 
@@ -71,9 +65,11 @@ def guildIndex(request):
 
 def guildPage(request,guildId):
     guildList = guild.objects.filter(id=guildId)
+    characterList = character.objects.filter(characterGuild = guildId)
     template = loader.get_template('guilds/guildPage.html')
     context = {
         'guildList': guildList,
+        'characterList': characterList,
         }
 
     return HttpResponse(template.render(context,request))

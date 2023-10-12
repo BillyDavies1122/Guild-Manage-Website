@@ -3,16 +3,14 @@
 {% block title%} Search Results {% endblock %}
 {% block content %}
 
-{% if guildSearch%}
+{% if guildSearch or characterSearch%}
 
     {% for guild in guildSearch %}
-        <h2>{{guild.guildName}}</h2>
+    <a class ="searchList" href="/{{guild.id}}/guild">{{guild.guildName}}-{{guild.faction}}-{{guild.server}} </a>
     {% endfor %}
 
-{% elif characterSearch %}
-
-    {%for character in characterSearch %}
-        </h2>{{character}}<h2>
+    {% for character in characterSearch %}
+        <a class ="searchList" href="/{{character.id}}/character"> {{character.characterName}} - {{character.characterFaction}} - {{character.characterRealm}} </a>
     {% endfor %}
 
 {% else %}
