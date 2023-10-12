@@ -11,5 +11,7 @@ urlpatterns = [
     path("<int:guildId>/guild",views.guildPage,name="guildPage"),
 
     path("characterIndex/",views.characterIndex,name="characterIndex"),
-    path("<int:characterId>/character",views.characterPage,name="characterPage")
+    path("<int:characterId>/character",views.characterPage,name="characterPage"),
+
+    path('instances/', views.instance_list, name='instance_list'),
     ]
