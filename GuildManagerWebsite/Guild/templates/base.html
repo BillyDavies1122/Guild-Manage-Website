@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %} Guild Manager {% endblock %}</title>
-    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="{% static 'guild/styles.css' %}">
 </head>
 <body>
 
     <div id="navMenu">
         {% block navmenu %}
-        <ul>
+        <ul class="navlist">
             <li>
                 <a href="{% url 'characterIndex' %}">Characters </a>
             </li>

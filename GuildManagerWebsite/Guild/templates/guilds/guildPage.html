@@ -11,7 +11,12 @@
     <h2>{{guild.server}} </h2>
     <h2>{{guild.faction}} </h2>
     {% endfor %}
-
+    {% if characterList %}
+        <h1> Members </h1>
+           {% for character in characterList %}
+            <a class ="searchList" href="/{{character.id}}/character"> {{character.characterName}} - {{character.characterFaction}} - {{character.characterRealm}} </a>
+            {% endfor %}
+    {% endif %}
 {% else %}
 <p>Guild not found!</p>
 {% endif %}
